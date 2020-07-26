@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class ContactService {
-    private contactsUrl = '/api/contacts';
+    private contactsUrl = 'http://backend-mean.apps.shared-rhpds4.rhpds4.openshift.opentlc.com/api/contacts';
 
     constructor (private http: Http) {}
 
