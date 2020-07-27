@@ -25,9 +25,9 @@ pipeline {
     stage('npm run build') {
       steps {
         echo "Build the app."
-        sh "npm update"
-        sh "npm install -g @angular/cli"
-        sh "npm run build"
+        sh "npm update --previx=/data/node_modules"
+        sh "npm install --prefix=/data/node_modules -g @angular/cli"
+        sh "npm run build --prefix=/data/node_modules"
       }
     }               
     stage('Echo output') {
@@ -36,6 +36,8 @@ pipeline {
           echo "Did the build work?"
           echo "List current dir."
           sh "ls -la"
+          echo "List modules dir"
+          sh "ls -la /data/node_modules"
           echo "List dist dir."
           sh "ls -la dist"
         }
