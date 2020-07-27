@@ -27,7 +27,7 @@ pipeline {
         echo "Build the app."
         sh "npm update --previx=/data/node_modules"
         sh "npm install --prefix=/data/node_modules -g @angular/cli"
-        sh "npm run build --prefix=/data/node_modules"
+        sh "npm run build"
       }
     }               
     stage('Echo output') {
