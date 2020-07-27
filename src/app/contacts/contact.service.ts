@@ -9,13 +9,14 @@ import { environment } from '../../environments/environment';
 export class ContactService {
     //private contactsUrl = 'http://backend-mean.apps.shared-rhpds4.rhpds4.openshift.opentlc.com/api/contacts';
 
-    private contactsUrl = environment.apiUrl + "/api/contacts";
-
+    private contactsUrl = environment.apiUrl + '/api/contacts';
 
     constructor (private http: Http) {}
 
     // get("/api/contacts")
     getContacts(): Promise<void | Contact[]> {
+      console.error("Using env for api url" + this.contactsUrl); 
+
       return this.http.get(this.contactsUrl)
                  .toPromise()
                  .then(response => response.json() as Contact[])
