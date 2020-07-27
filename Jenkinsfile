@@ -36,7 +36,7 @@ pipeline {
           echo "Build container image."
           openshift.withCluster() {
             openshift.withProject('cicd') {
-              sh "oc start-build frontend-s2i-build --from-dir=dist/contactlist --follow"
+              sh "oc start-build frontend-s2i-build --from-dir=dist/mean-contactlist-angular2 --follow"
             }
           }
         }
