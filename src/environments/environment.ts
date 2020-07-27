@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://be-mean.apps.shared-rhpds4.rhpds4.openshift.opentlc.com',
 };
 
 /*

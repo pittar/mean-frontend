@@ -2,9 +2,15 @@ import { Injectable } from '@angular/core';
 import { Contact } from './contact';
 import { Http, Response } from '@angular/http';
 
+import { environment } from '../../environments/environment';
+
+
 @Injectable()
 export class ContactService {
-    private contactsUrl = 'http://backend-mean.apps.shared-rhpds4.rhpds4.openshift.opentlc.com/api/contacts';
+    //private contactsUrl = 'http://backend-mean.apps.shared-rhpds4.rhpds4.openshift.opentlc.com/api/contacts';
+
+    private contactsUrl = environment.apiUrl + "/api/contacts";
+
 
     constructor (private http: Http) {}
 
