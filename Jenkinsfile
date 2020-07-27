@@ -30,24 +30,13 @@ pipeline {
         sh "npm run build"
       }
     }               
-    stage('Echo output') {
-      steps {
-        script {
-          echo "Did the build work?"
-          echo "List current dir."
-          sh "ls -la"
-          echo "List dist dir."
-          sh "ls -la dist"
-        }
-      }
-    }
     stage('Build Image') {
       steps {
         script {
           echo "Build container image."
           openshift.withCluster() {
-            openshift.withProject('mean') {
-              sh "oc start-build mean-frontend-s2i-build --from-dir=dist/mean-contactlist-angular2 --follow"
+            openshift.withProject('cicd') {
+              sh "oc start-build frontend-s2i-build --from-dir=dist/contactlist --follow"
             }
           }
         }

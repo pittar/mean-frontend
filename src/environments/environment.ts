@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://fe-mean.apps.shared-rhpds4.rhpds4.openshift.opentlc.com',
+  apiUrl: '',
 };
 
 /*
